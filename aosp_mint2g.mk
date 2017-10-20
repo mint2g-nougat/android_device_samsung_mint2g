@@ -12,14 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Since the first thing in PRODUCT_COPY_FILES takes precedence, organize some 'overrides' like this.
+$(call inherit-product, device/samsung/mint2g/overrides.mk)
+
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit device specific files
 $(call inherit-product, device/samsung/mint2g/device_mint2g.mk)
 
 # Overrides
-PRODUCT_NAME := full_mint2g
+PRODUCT_NAME := aosp_mint2g
 PRODUCT_DEVICE := mint2g
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := GT-S5282
