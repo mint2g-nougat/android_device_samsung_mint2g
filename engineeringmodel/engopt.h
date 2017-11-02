@@ -19,7 +19,7 @@ extern "C" {
 #ifdef ENG_TRACING
 #define ENG_LOG  ALOGD
 #else
-#define ENG_LOG  ALOGD
+#define ENG_LOG(...)
 //#define  ENG_LOG(format, ...)
 #endif
 

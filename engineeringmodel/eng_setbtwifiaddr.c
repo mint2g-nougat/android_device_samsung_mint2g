@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include<time.h>
+#include <string.h>
+#include <time.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include "eng_sqlite.h"
@@ -17,6 +18,11 @@
 #undef LOG_TAG
 #endif
 #define LOG_TAG 			"BTWIFIMAC"
+
+#ifndef ENG_TRACING
+#undef ALOGD
+#define ALOGD(...)
+#endif
 
 #define MAC_ERROR_EX			":::::"
 #define MAC_ERROR			"FF:FF:FF:FF:FF:FF"
