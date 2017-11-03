@@ -41,7 +41,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/bin/poweroff_alarm:root/bin/poweroff_alarm \
 	$(LOCAL_PATH)/rootdir/bin/vcharged:root/bin/vcharged \
 	$(LOCAL_PATH)/rootdir/bin/rawdatad:root/bin/rawdatad
-	
+
 # System init fragments
 SYSTEM_INIT_RC_FILES := \
 	$(LOCAL_PATH)/rootdir/system/etc/init/at_distributor.rc \
@@ -57,10 +57,10 @@ SYSTEM_INIT_RC_FILES := \
 	$(LOCAL_PATH)/rootdir/system/etc/init/telephony.rc \
 	$(LOCAL_PATH)/rootdir/system/etc/init/vcharged.rc \
 	$(LOCAL_PATH)/rootdir/system/etc/init/wifi.rc
-	
+
 PRODUCT_COPY_FILES += \
 	$(foreach f,$(SYSTEM_INIT_RC_FILES),$(f):system/etc/init/$(notdir $(f)))
-	
+
 # Idc
 PRODUCT_COPY_FILES += \
 	 $(LOCAL_PATH)/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
@@ -68,7 +68,7 @@ PRODUCT_COPY_FILES += \
 # Keylayout
 PRODUCT_COPY_FILES += \
 	 $(LOCAL_PATH)/sprd-keypad.kl:system/usr/keylayout/sprd-keypad.kl
-	 
+
 # Bluetooth Vendor Configuration
 PRODUCT_COPY_FILES += \
 	 $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/usetc/bluetooth/bt_vendor.conf
@@ -89,11 +89,11 @@ PRODUCT_PACKAGES += \
 	wpa_supplicant \
 	hostapd \
 	wpa_supplicant.conf
-	
+
 # CPUFreq driver by @psych.half
 PRODUCT_PACKAGES += \
 	cpufreq-sc8810.ko
-	
+
 # Graphics
 PRODUCT_PACKAGES += \
 	libUMP
@@ -114,15 +114,15 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
 	camera.sc8810
-	
+
 
 # Hw params
 PRODUCT_COPY_FILES += \
 	 $(LOCAL_PATH)/audio_para:system/etc/audio_para \
 	 $(LOCAL_PATH)/codec_pga.xml:system/etc/codec_pga.xml\
 	 $(LOCAL_PATH)/tiny_hw.xml:system/etc/tiny_hw.xml
-	 
-	 
+
+
 # Media config
 MEDIA_CONFIGS := \
 	$(LOCAL_PATH)/media_codecs.xml \
@@ -157,7 +157,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapsize=92m \
 	ro.ksm.default=1 \
 	ro.telephony.ril_class=SamsungMint2GRIL
-	ro.telephony.call_ring=0 
+	ro.telephony.call_ring=0
 
 # OpenGL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -180,7 +180,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.adb.secure=0 \
 	persist.service.adb.enable=1
 
-	
+
 # ART device props
 PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dex2oat-Xms=8m \
@@ -194,12 +194,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Low ram optimization
 PRODUCT_PROPERTY_OVERRIDES += ro.config.low_ram=true
 
-
 # Force use old camera api
 PRODUCT_PROPERTY_OVERRIDES += \
 	camera2.portability.force_api=1
-	
-PRODUCT_TAGS += dalvik.gc.type-precise 
+
+PRODUCT_TAGS += dalvik.gc.type-precise
 
 
 # Boot animation

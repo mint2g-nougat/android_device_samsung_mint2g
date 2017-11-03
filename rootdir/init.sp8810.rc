@@ -9,16 +9,16 @@ on init
 	symlink /sdcard /mnt/sdcard
 	symlink /sdcard /storage/sdcard0
 
-	
+
 	export SECONDARY_STORAGE /storage/sdcard1
 	mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
 	mkdir /storage/sdcard1 0700 root root
 
-   
+
 	mkdir /efs 0775 radio system
 	symlink /efs /factory
 	symlink /dev/block/mmcblk0p11 /dev/block/param
-	
+
 	export LD_SHIM_LIBS /system/lib/libril.so|/system/lib/libril_shim.so
 
 on fs
@@ -77,12 +77,12 @@ on post-fs-data
 	chmod 0660 /sys/class/input/input3/enable
 	chmod 0660 /sys/class/input/input3/poll_delay
 	chmod 0660 /sys/class/input/input3/acc_cal_open
-	 
+
 on boot
 	# Permissions for backlight
 	chown system system /sys/class/backlight/panel/brightness
 	chmod 0660 /sys/class/backlight/panel/brightness
-	
+
 	# TelephonyManager.java requires this
 	chmod 0644 /proc/cmdline
 
@@ -114,7 +114,7 @@ on boot
 	chown system radio /sys/class/audio/earjack/select_jack
 	chown system radio /sys/class/audio/earjack/key_state
 	chown system radio /sys/class/audio/earjack/state
-	chown media system /sys/class/audio/earjack/reselect_jack 
+	chown media system /sys/class/audio/earjack/reselect_jack
 
 	# Battery node
 	chown system radio /sys/class/power_supply/battery/batt_charging_source
@@ -166,7 +166,7 @@ on boot
 	chown system radio /sys/class/sec/tsp/cmd
 
 	# Permissions for Touchkey
-	chown system radio /sys/class/sec/sec_touchkey/enable_disable 
+	chown system radio /sys/class/sec/sec_touchkey/enable_disable
 	chown system radio /sys/class/sec/sec_touchkey/touchkey_brightness
 	chown system radio /sys/class/sec/sec_touchkey/touchkey_menu
 	chown system radio /sys/class/sec/sec_touchkey/touchkey_back
@@ -181,7 +181,7 @@ on boot
 	chown system system /sys/devices/virtual/sec/sec_touchkey/brightness
 
 	 # Permissions for gpio_keys
-#    chown radio system /sys/class/sec/sec_key/wakeup_keys 
+#    chown radio system /sys/class/sec/sec_key/wakeup_keys
 #    write /sys/class/sec/sec_key/wakeup_keys 116,172,544
 
 	# Permissions for Camera
@@ -209,7 +209,7 @@ on boot
 
 	# Voice Soulution
 	copy /system/etc/DiamondVoice.txt /data/DiamondVoice.txt
-	chmod 0777 /data/DiamondVoice.txt   
+	chmod 0777 /data/DiamondVoice.txt
 	copy /system/etc/DiamondVoice_Filter.txt /data/DiamondVoice_Filter.txt
 	chmod 0777 /data/DiamondVoice_Filter.txt
 	insmod /system/lib/modules/VoiceSolution.ko
@@ -237,9 +237,14 @@ on boot
 	chown system system /sys/class/power_supply/*
 	chown system system /proc/sys/kernel/printk
 
+
+    # For Broadcom FMRadio
+    chmod 0777 /system/bin/btld
+    setprop service.brcm.bt.pbap_mode btld
+
 # SEC_PRODUCT_FEATURE_COMMON_USE_MULTISIM
 #   simslot 1
-#   setprop ro.multisim.simslotcount 1  
+#   setprop ro.multisim.simslotcount 1
 #   simslot 2
 	setprop ro.multisim.simslotcount 2
 #   simslot 3
@@ -260,4 +265,3 @@ on alarm
 	class_start core
 	start media
 	exec /bin/poweroff_alarm
-

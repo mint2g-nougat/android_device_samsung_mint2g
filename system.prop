@@ -23,4 +23,3 @@ config.disable_samplingprof=true
 dalvik.vm.jit.codecachesize=0
 ro.config.max_starting_bg=8
 ro.sys.fw.bg_apps_limit=16
-
