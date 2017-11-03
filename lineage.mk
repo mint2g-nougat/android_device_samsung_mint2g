@@ -8,7 +8,7 @@ PRODUCT_RELEASE_NAME := mint2g
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/mint2g/full_mint2g.mk)
+$(call inherit-product, device/samsung/mint2g/lineage_mint2g.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=mint2g \
