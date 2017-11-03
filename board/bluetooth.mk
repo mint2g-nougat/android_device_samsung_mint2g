@@ -1,0 +1,3 @@
+# RIL
+BOARD_RIL_CLASS += ../../../device/samsung/mint2g/ril
+BOARD_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
