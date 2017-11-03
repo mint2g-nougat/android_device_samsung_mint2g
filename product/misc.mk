@@ -15,3 +15,28 @@ MEDIA_CONFIGS := \
 
 PRODUCT_COPY_FILES += \
 $(foreach f,$(MEDIA_CONFIGS),$(f):system/etc/$(notdir $(f)))
+
+# Web
+PRODUCT_PACKAGES += \
+    libskia_legacy
+
+# Misc packages
+PRODUCT_PACKAGES += \
+	com.android.future.usb.accessory \
+
+# Samsung Service Mode
+PRODUCT_PACKAGES += \
+	SamsungServiceMode
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+	setup_fs \
+
+# Charger
+PRODUCT_PACKAGES += \
+	charger \
+	charger_res_images
+
+# Media
+PRODUCT_PACKAGES += \
+	libstagefrighthw
