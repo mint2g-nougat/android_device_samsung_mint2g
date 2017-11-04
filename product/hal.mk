@@ -5,9 +5,9 @@ PRODUCT_COPY_FILES += \
 #Wifi
 PRODUCT_PACKAGES += \
     wpa_supplicant \
-	 	hostapd \
-	 	libnetcmdiface \
-	 	wpa_supplicant.conf
+	hostapd \
+	libnetcmdiface \
+	wpa_supplicant.conf
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -27,4 +27,4 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-	ights.$(TARGET_BOARD_PLATFORM)
+	lights.$(TARGET_BOARD_PLATFORM)
